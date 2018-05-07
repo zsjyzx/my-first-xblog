@@ -1,0 +1,23 @@
+{% extends 'blog_base.html' %}
+
+{% block extra_head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="publish center-block">
+    <form action="" method="post">{% csrf_token %}
+      {{ form.media }}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">发 布</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+  var editor = new Editor();
+  editor.render();
+</script>
+{% endblock %}

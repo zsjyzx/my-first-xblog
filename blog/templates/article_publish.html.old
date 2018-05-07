@@ -1,0 +1,46 @@
+{% extends 'blog_base.html' %}
+
+{% block extra_head %}
+  <!-- link rel="stylesheet" href="//cdn.jsdelivr.net/editor/0.1.0/editor.css" -->
+  <!-- script src="//cdn.jsdelivr.net/editor/0.1.0/editor.js"></script -->
+  <!-- script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script -->
+  <!-- script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script -->
+  <link rel="stylesheet" href="https://pandao.github.io/editor.md/css/editormd.css">
+  <link type="text/css" rel="stylesheet" href="https://pandao.github.io/editor.md/lib/codemirror/codemirror.min.css">
+  <link type="text/css" rel="stylesheet" href="https://pandao.github.io/editor.md/lib/codemirror/addon/dialog/dialog.css">
+  <link type="text/css" rel="stylesheet" href="https://pandao.github.io/editor.md/lib/codemirror/addon/search/matchesonscrollbar.css">
+  <script id="-lib-codemirror-codemirror-min" type="text/javascript" src="https://pandao.github.io/editor.md/lib/codemirror/codemirror.min.js"></script>
+  <script id="-lib-codemirror-modes-min" type="text/javascript" src="https://pandao.github.io/editor.md/lib/codemirror/modes.min.js"></script>
+  <script id="-lib-codemirror-addons-min" type="text/javascript" src="https://pandao.github.io/editor.md/lib/codemirror/addons.min.js"></script>
+  <script id="-lib-marked-min" type="text/javascript" src="https://pandao.github.io/editor.md/lib/marked.min.js"></script>
+  <script id="-lib-prettify-min" type="text/javascript" src="https://pandao.github.io/editor.md/lib/prettify.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="publish center-block">
+    <form action="" method="post">{% csrf_token %}
+      {{ form.title }}
+      {{ form.content }}
+      {{ form.tags }}
+      <button type="submit" class="btn btn-primary">发 布</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://pandao.github.io/editor.md/js/jquery.min.js"></script>
+<script src="https://pandao.github.io/editor.md/editormd.min.js"></script>
+<script type="text/javascript">
+  var testEditor;
+  $(function() {
+      testEditor = editormd({
+                             id      : "id_content",
+                             width   : "50%",
+                             height  : 320,
+                             path    : "./"
+                            });
+  });
+</script>
+{% endblock %}
