@@ -7,10 +7,8 @@ class Article(models.Model):
     title = models.CharField(max_length=50)
     title_zh = models.CharField(max_length=50)
     author = models.CharField(max_length=30)
-    #content_md = models.TextField()
     content_md = MDTextField()
     content_html = models.TextField()
-    #content_html = MDTextField()
     # type = models.CharField(max_length=30)  #django, python, ...
     tags = models.CharField(max_length=30)
     views = models.IntegerField()

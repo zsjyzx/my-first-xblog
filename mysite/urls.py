@@ -37,6 +37,9 @@ urlpatterns = [
     #url(r'^hello$', views.hello, name='hello'),
     #url(r'^testdb$', views.testdb, name='testdb'),
 
+	# FAKE TEST
+    url(r'^faketest/', include('mysite.faketest.urls')),
+
     # MDEDitor
     url(r'mdeditor/', include('mdeditor.urls')),
 ]

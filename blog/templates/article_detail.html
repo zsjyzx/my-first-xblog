@@ -6,6 +6,7 @@
 
 {% block content %}
 <div class="container">
+  <a class="btn btn-default" href="/blog{{ object.url }}/edit"><span class="glyphicon glyphicon-pencil"></span>修改</a>
   <div class="article">
     <div class="article-info">
       <p class="pull-right" title="发表日期"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>{{ object.created|date:"Y/n/j G:i" }}</p>

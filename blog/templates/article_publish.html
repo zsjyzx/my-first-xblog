@@ -1,6 +1,7 @@
 {% extends 'blog_base.html' %}
 
 {% block extra_head %}
+<script src="//cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -8,16 +9,9 @@
   <div class="publish center-block">
     <form action="" method="post">{% csrf_token %}
       {{ form.media }}
-      {{ form.as_p }}
+      {{ form.as_table }}
       <button type="submit" class="btn btn-primary">发 布</button>
     </form>
   </div>
 </div>
-{% endblock %}
-
-{% block scripts %}
-<script type="text/javascript">
-  var editor = new Editor();
-  editor.render();
-</script>
 {% endblock %}

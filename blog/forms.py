@@ -7,16 +7,16 @@ import markdown
 from django import forms
 
 from models import Article
-from models import ExampleModel
+#from models import ExampleModel
 
 from mdeditor.fields import MDTextFormField
-from mdeditor.fields import MDTextField
+#from mdeditor.fields import MDTextField
 
 class ArticlePublishForm(forms.Form):
     title = forms.CharField(
         label=u'文章标题',
         max_length=50,
-        widget=forms.TextInput(attrs={'class': 'vTextField', 'placeholder': u'请在标题末尾添加".html"'}),
+        widget=forms.TextInput(attrs={'class': 'vTextField', 'placeholder': u'文章标题，请在标题末尾添加".html"'}),
     )
 
     content = MDTextFormField(
@@ -28,7 +28,7 @@ class ArticlePublishForm(forms.Form):
     tags = forms.CharField(
         label=u'文章标签',
         max_length=30,
-        widget=forms.TextInput(attrs={'class': '', 'placeholder': u'以空格进行分割'}),
+        widget=forms.TextInput(attrs={'class': '', 'placeholder': u'文章标签，以空格进行分割'}),
     )
 
     def save(self, username, article=None):
@@ -70,15 +70,15 @@ class ArticlePublishForm(forms.Form):
                 updated=now)
         article.save()
 
-class MDEditorForm(forms.Form):
-    name = forms.CharField()
-    content = MDTextFormField()
+#class MDEditorForm(forms.Form):
+#    name = forms.CharField()
+#    content = MDTextFormField()
 
 # ModelForm 可自动将model 对应的字段转为 form字段
-class MDEditorModleForm(forms.ModelForm):
-    class Meta:
-        model = ExampleModel
-        fields = '__all__'
+#class MDEditorModleForm(forms.ModelForm):
+#    class Meta:
+#        model = ExampleModel
+#        fields = '__all__'
 
 class ArticleModleForm(forms.ModelForm):
     class Meta:
