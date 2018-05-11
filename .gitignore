@@ -5,3 +5,5 @@ static.zip
 static
 uwsgi.log
 uploads
+mysite.sock
+*.bak
