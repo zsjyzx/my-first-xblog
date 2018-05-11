@@ -13,11 +13,6 @@ from django.views.generic.list import ListView
 from models import Article
 from forms import ArticlePublishForm
 
-# fake_query
-#import json
-#import requests
-#from django.views.decorators.csrf import csrf_exempt
-#from django.http import HttpRequest, HttpResponse
 
 class AdminRequiredMixin(object):
     @classmethod
@@ -109,19 +104,3 @@ class ArticleEditView(AdminRequiredMixin, FormView):
         # success_url = '/blog/article/%s' % (title)
         success_url = reverse('article_detail', args=(title,))
         return success_url
-
-"""@csrf_exempt
-def fake_query(request):
-    print('get into fake_query')
-    dct = {
-            'fake': 'test',
-            'GET': request.GET,
-            'POST': request.POST,
-            'body': request.body,
-            }
-    try:
-        dct['json_parsed_body'] = json.loads(request.body)
-    except Exception as e:
-        print('json loads except:{}'.format(e))
-    return HttpResponse(HttpResponse(json.dumps(dct)), content_type='application/json')
-"""
