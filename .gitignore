@@ -2,7 +2,6 @@
 db.sqlite3
 out.txt
 static.zip
-static
 uwsgi.log
 uploads
 mysite.sock
